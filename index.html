@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="container">
+    <div class="card">
+       <div class="header-deco">✦</div>
+    <h1>Мы женимся!</h1>
+    <p class="names">Алексей & Екатерина</p>
+    <div class="date">20 сентября 2026</div>
+    <div class="time">16:00</div>
+    <div class="location">
+        🌳 Усадьба «Берёзки»<
+        г. Сергиев Посад, ул. Лесная, 12
+    </div>
+
+      <!-- Блок дресс-кода -->
+<div class="dresscode">
+    <div class="dresscode-icon">👗</div>
+    <h3>Дресс-код: Пастельные оттенки</h3>
+    <p>Пожалуйста, выберите наряды в нежной, светлой гамме.<
+    Пастельные тона создадут особенную, воздушную атмосферу нашего праздника!</p>
+    
+    <!-- Примеры цветов в виде кружков -->
+    <div class="color-palette">
+    <div class="color-circle" style="background: #FF85A1;" title="Нежно-розовый"></div>
+<div class="color-circle" style="background: #6FCF97;" title="Мятный"></div>
+<div class="color-circle" style="background: #FFE66D;" title="Ванильный"></div>
+<div class="color-circle" style="background: #5DADE2;" title="Небесно-голубой"></div>
+<div class="color-circle" style="background: #C39BD3;" title="Сиреневый"></div>
+<div class="color-circle" style="background: #FFB347;" title="Персиковый"></div>
+<div class="color-circle" style="background: #7DCEA0;" title="Шалфейный"></div>
+<div class="color-circle" style="background: #FF8DA1;" title="Пастельно-розовый"></div>
+<div class="color-circle" style="background: #9BA834;" title="Хаки"></div>
+<div class="color-circle" style="background: #FFE53B;" title="Лимонный"></div>
+<div class="color-circle" style="background: #8FCE8A;" title="Фисташковый"></div>
+<div class="color-circle" style="background: #A0A0A0;" title="Серый"></div>
+    <!-- НОВЫЕ ЦВЕТА -->
+    <div class="color-circle" style="background: #C5C4A0;" title="Хаки"></div>
+    <div class="color-circle" style="background: #FFFACD;" title="Лимонный"></div>
+    <div class="color-circle" style="background: #C1E1C1;" title="Фисташковый"></div>
+    <div class="color-circle" style="background: #D3D3D3;" title="Серый"></div>
+</div>
+      
+    <!-- ФОРМА -->
+    <div class="form-section">
+        <h3>Пожалуйста, подтвердите присутствие</h3>
+        
+        <!-- ГЛАВНЫЙ ВОПРОС: будете ли вы -->
+        <div class="form-group attendance-group">
+            <label class="attendance-label">✨ Вы будете на свадьбе? ✨</label>
+            <div class="attendance-options">
+                <label class="attendance-option">
+                    <input type="radio" name="attendance" value="yes" checked> ✅ Да, обязательно!
+                </label>
+                <label class="attendance-option">
+                    <input type="radio" name="attendance" value="no"> ❌ К сожалению, нет
+                </label>
+            </div>
+        </div>
+      <!-- БЛОК ДЛЯ ТЕХ, КТО ПРИДЁТ (показывается по умолчанию) -->
+        <div id="yesBlock">
+            <div class="form-group">
+                <label>Ваши имена (кто идёт?)</label>
+                <input type="text" id="guestNames" placeholder="Например: Алексей, Екатерина, дочка Алиса" required>
+            </div>
+
+            <div class="form-group">
+                <label>Какие напитки предпочитаете?</label>
+                <div class="drinks-options">
+                    <label class="drink-option">
+                        <input type="checkbox" value="Шампанское"> 🥂 Шампанское
+                    </label>
+                    <label class="drink-option">
+                        <input type="checkbox" value="Вино белое"> 🍷 Вино белое
+                    </label>
+                    <label class="drink-option">
+                        <input type="checkbox" value="Вино красное"> 🍷 Вино красное
+                    </label>
+                    <label class="drink-option">
+                        <input type="checkbox" value="Виски/Коньяк"> 🥃 Виски/Коньяк
+                    </label>
+                    <label class="drink-option">
+                        <input type="checkbox" value="Безалкогольное"> 🧃 Безалкогольное
+                    </label>
+                    <label class="drink-option">
+                        <input type="checkbox" value="Свой вариант"> ✏️ Свой вариант
+                        <input type="text" id="customDrink" placeholder="Напишите..." style="display:none; margin-top:5px;">
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Есть ли аллергии или пожелания?</label>
+                <textarea id="allergies" rows="2" placeholder="Например: аллергия на орехи, вегетарианское меню..."></textarea>
+            </div>
+        </div>
+
+        <!-- БЛОК ДЛЯ ТЕХ, КТО НЕ ПРИДЁТ (скрыт по умолчанию) -->
+        <div id="noBlock" style="display:none;">
+            <div class="form-group">
+                <label>Очень жаль! Если хотите, оставьте пожелание или поздравление:</label>
+                <textarea id="noMessage" rows="3" placeholder="Поздравления, тёплые слова..."></textarea>
+            </div>
+        </div>
+
+        <button id="submitForm">✅ Отправить ответ </button>
+        <div id="formStatus" class="form-status"></div>
+    </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
