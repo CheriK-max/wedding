@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding</title>
+    <title>Приглашение на свадьбу | Ренат & Карина</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-</div><!-- ЭКРАН-ЗАСТАВКА С ДВЕРЯМИ -->
+<!-- ЭКРАН-ЗАСТАВКА С ДВЕРЯМИ -->
 <div id="splashScreen">
     <div class="splash-content">
         <div class="invite-title">Для Вас приглашение!</div>
@@ -18,165 +19,159 @@
     <div id="rightDoor" class="door door-right"></div>
 </div>
 
-<!-- Ваш существующий контейнер с приглашением (изначально скрыт) -->
+<!-- ОСНОВНОЙ КОНТЕЙНЕР С ПРИГЛАШЕНИЕМ (изначально скрыт) -->
 <div class="container" id="weddingContainer" style="display: none;">
-
-<div class="container">
     <div class="card">
-       <div class="header-deco">✦</div>
-    <h1>Мы официально станем семьей!</h1>
-    <p class="names">Ренат & Карина</p>
-   
+        <div class="header-deco">✦</div>
+        <h1>Мы официально станем семьей!</h1>
+        <p class="names">Ренат & Карина</p>
 
-    
-      
-<!-- ФОРМА -->
-<div class="form-section">
-    <h3>Пожалуйста, подтвердите свое присутствие до 10 июля</h3>
-    
-    <!-- ПОЛЕ ДЛЯ ИМЁН (теперь ОТДЕЛЬНО, всегда видно) -->
-    <div class="form-group">
-        <label>Ваши имена (необходимо вписать свои имя и фамилию, чтобы мы понимали, от кого пришел ответ)</label>
-        <input type="text" id="guestNames" placeholder="Например: Алексей, Екатерина, дочка Алиса Ивановы" required>
-    </div>
-    
-    <!-- ГЛАВНЫЙ ВОПРОС: будете ли вы -->
-    <div class="form-group attendance-group">
-        <label class="attendance-label">✨ Вы будете на свадьбе? ✨</label>
-        <div class="attendance-options">
-            <label class="attendance-option">
-                <input type="radio" name="attendance" value="yes" checked> ✅ Да, обязательно!
-            </label>
-            <label class="attendance-option">
-                <input type="radio" name="attendance" value="no"> ❌ К сожалению, нет
-            </label>
-        </div>
-    </div>
-    
-    <!-- БЛОК ДЛЯ ТЕХ, КТО ПРИДЁТ (показывается по умолчанию) -->
-    <div id="yesBlock">
-        <div class="form-group">
-            <label>Какие напитки предпочитаете?</label>
-            <div class="drinks-options">
-                <label class="drink-option">
-                    <input type="checkbox" value="Шампанское"> 🥂 Шампанское
-                </label>
-                <label class="drink-option">
-                    <input type="checkbox" value="Вино белое"> 🍸 Вино белое
-                </label>
-                <label class="drink-option">
-                    <input type="checkbox" value="Вино красное"> 🍷 Вино красное
-                </label>
-                <label class="drink-option">
-                    <input type="checkbox" value="Виски/Коньяк"> 🥃 Коньяк
-                </label>
-                <label class="drink-option">
-                    <input type="checkbox" value="Самогон"> 🥛 Самогон (домашний)
-                </label>
-                <label class="drink-option">
-                    <input type="checkbox" value="Безалкогольное"> 🧃 Безалкогольное
-                </label>
-                <label class="drink-option">
-                    <input type="checkbox" value="Свой вариант"> ✏️ Свой вариант
-                    <input type="text" id="customDrink" placeholder="Напишите..." style="display:none; margin-top:5px;">
-                </label>
+        <!-- ФОРМА -->
+        <div class="form-section">
+            <h3>Пожалуйста, подтвердите свое присутствие до 10 июля</h3>
+
+            <!-- ПОЛЕ ДЛЯ ИМЁН -->
+            <div class="form-group">
+                <label>Ваши имена (необходимо вписать свои имя и фамилию, чтобы мы понимали, от кого пришел ответ)</label>
+                <input type="text" id="guestNames" placeholder="Например: Алексей, Екатерина, дочка Алиса Ивановы" required>
+            </div>
+
+            <!-- ГЛАВНЫЙ ВОПРОС: будете ли вы -->
+            <div class="form-group attendance-group">
+                <label class="attendance-label">✨ Вы будете на свадьбе? ✨</label>
+                <div class="attendance-options">
+                    <label class="attendance-option">
+                        <input type="radio" name="attendance" value="yes" checked> ✅ Да, обязательно!
+                    </label>
+                    <label class="attendance-option">
+                        <input type="radio" name="attendance" value="no"> ❌ К сожалению, нет
+                    </label>
+                </div>
+            </div>
+
+            <!-- БЛОК ДЛЯ ТЕХ, КТО ПРИДЁТ (показывается по умолчанию) -->
+            <div id="yesBlock">
+                <div class="form-group">
+                    <label>Какие напитки предпочитаете?</label>
+                    <div class="drinks-options">
+                        <label class="drink-option">
+                            <input type="checkbox" value="Шампанское"> 🥂 Шампанское
+                        </label>
+                        <label class="drink-option">
+                            <input type="checkbox" value="Вино белое"> 🍸 Вино белое
+                        </label>
+                        <label class="drink-option">
+                            <input type="checkbox" value="Вино красное"> 🍷 Вино красное
+                        </label>
+                        <label class="drink-option">
+                            <input type="checkbox" value="Виски/Коньяк"> 🥃 Коньяк
+                        </label>
+                        <label class="drink-option">
+                            <input type="checkbox" value="Самогон"> 🥛 Самогон (домашний)
+                        </label>
+                        <label class="drink-option">
+                            <input type="checkbox" value="Безалкогольное"> 🧃 Безалкогольное
+                        </label>
+                        <label class="drink-option">
+                            <input type="checkbox" value="Свой вариант"> ✏️ Свой вариант
+                            <input type="text" id="customDrink" placeholder="Напишите..." style="display:none; margin-top:5px;">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Есть ли аллергии или пожелания?</label>
+                    <textarea id="allergies" rows="2" placeholder="Например: аллергия на орехи, вегетарианское меню..."></textarea>
+                </div>
+            </div>
+
+            <!-- БЛОК ДЛЯ ТЕХ, КТО НЕ ПРИДЁТ (скрыт по умолчанию) -->
+            <div id="noBlock" style="display:none;
+
+
+<div class="form-group">
+                    <label>Очень жаль! Если хотите, оставьте пожелание или поздравление:</label>
+                    <textarea id="noMessage" rows="3" placeholder="Поздравления, тёплые слова..."></textarea>
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
-            <label>Есть ли аллергии или пожелания?</label>
-            <textarea id="allergies" rows="2" placeholder="Например: аллергия на орехи, вегетарианское меню..."></textarea>
-        </div>
-    </div>
-
-    <!-- БЛОК ДЛЯ ТЕХ, КТО НЕ ПРИДЁТ (скрыт по умолчанию) -->
-    <div id="noBlock" style="display:none;">
-        <div class="form-group">
-            <label>Очень жаль! Если хотите, оставьте пожелание или поздравление:</label>
-            <textarea id="noMessage" rows="3" placeholder="Поздравления, тёплые слова..."></textarea>
-        </div>
-    </div>
-</div>
-       <button id="submitForm">✅ Отправить ответ </button>
+        <!-- ИСПРАВЛЕННАЯ КНОПКА ОТПРАВКИ -->
+        <button id="submitForm">Отправить ответ</button>
         <div id="formStatus" class="form-status"></div>
-      <div id="weddingDetails">
-        <!-- Блок дресс-кода -->
-<div class="dresscode">
-    <div class="dresscode-icon">👫</div>
-    <h3>Дресс-код: Пастельные оттенки</h3>
-    <p>Нам будет очень приятно, если Вы выберите наряды в нежной, светлой гамме.
-    Пастельные тона создадут особенную, воздушную атмосферу нашего праздника!</p>
-    
-    <!-- Примеры цветов в виде кружков -->
-    <div class="color-palette">
-    <div class="color-circle" style="background: #FF99D9;" title="Нежно-розовый"></div>
-<div class="color-circle" style="background: #6FCF97;" title="Мятный"></div>
-<div class="color-circle" style="background: #FFE66D;" title="Ванильный"></div>
-<div class="color-circle" style="background: #5DADE2;" title="Небесно-голубой"></div>
-<div class="color-circle" style="background: #C39BD3;" title="Сиреневый"></div>
-<div class="color-circle" style="background: #FFB347;" title="Персиковый"></div>
-<div class="color-circle" style="background: #7DCEA0;" title="Шалфейный"></div>
-<div class="color-circle" style="background: #FF9A99;" title="Пастельно-розовый"></div>
-<div class="color-circle" style="background: #9BA834;" title="Хаки"></div>
-<div class="color-circle" style="background: #FFE53B;" title="Лимонный"></div>
-<div class="color-circle" style="background: #8FCE8A;" title="Фисташковый"></div>
-<div class="color-circle" style="background: #A0A0A0;" title="Серый"></div>
-    <!-- НОВЫЕ ЦВЕТА -->
-    <div class="color-circle" style="background: #C5C4A0;" title="Хаки"></div>
-    <div class="color-circle" style="background: #FFFACD;" title="Лимонный"></div>
-    <div class="color-circle" style="background: #C1E1C1;" title="Фисташковый"></div>
-    <div class="color-circle" style="background: #D3D3D3;" title="Серый"></div>
-</div>
-<!-- Блок пожеланий -->
-<div class="wishes-block">
-    <div class="wishes-icon">💝</div>
-    <h2 class="wishes-title">Наши пожелания</h2>
-    <div class="wishes-text">
-        <p>Лучшая поддержка для нас — Ваши искренние пожелания и лучезарные улыбки.</p>
-        <p>Мы не хотим утруждать Вас выбором подарка, поэтому будем рады Вашему вкладу в бюджет нашей молодой семьи!</p>
-    </div>
-    <div class="wishes-decoration">✦ ✦ ✦</div>
-</div>
-  <!-- Календарь с датой -->
-  <!-- Пригласительная надпись -->
-<div class="invitation-text">Мы ждём Вас!</div>
-<div class="calendar-wrapper">
-    <div class="reminder-divider">✧ ✧ ✧</div>
-    
-    <div class="calendar-card">
-        <div class="calendar-month">АВГУСТ</div>
-        <div class="calendar-year">2026</div>
-        
-        <div class="calendar-weekdays">
-            <span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span>
-        </div>
-        
-        <div class="calendar-days">
-            <span></span><span></span><span></span><span></span><span></span><span>1</span><span>2</span>
-            <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
-            <span>10</span><span>11</span><span>12</span><span>13</span><span class="highlight-day">14</span><span>15</span><span>16</span>
-            <span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
-            <span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
-            <span>31</span>
-        </div>
-        
-        <div class="calendar-event">
-             💕 Наша свадьба! 💕
-        </div>
-    </div>
-    
-    <div class="time">Начало мероприятия в 17:00</div>
-   <div class="location" >
-      <p>   🍽️ Банкетный зал «Каир» </p>
-       <p> По адресу: </p>
-     <p> Республика Татарстан (Татарстан), Набережные Челны, проспект Мусы Джалиля, 79А, 423802 • этаж 2</p>
-    </div>
-</div>
-</div>
-    
-       
-    </div>
-</div>
-   <script src="script.js"></script>
 
-</body> 
+        <div id="weddingDetails">
+            <!-- Блок дресс-кода -->
+            <div class="dresscode">
+                <div class="dresscode-icon">👫</div>
+                <h3>Дресс-код: Пастельные оттенки</h3>
+                <p>Нам будет очень приятно, если Вы выберите наряды в нежной, светлой гамме.
+                Пастельные тона создадут особенную, воздушную атмосферу нашего праздника!</p>
+                <div class="color-palette">
+                    <div class="color-circle" style="background: #FF99D9;" title="Нежно-розовый"></div>
+                    <div class="color-circle" style="background: #6FCF97;" title="Мятный"></div>
+                    <div class="color-circle" style="background: #FFE66D;" title="Ванильный"></div>
+                    <div class="color-circle" style="background: #5DADE2;" title="Небесно-голубой"></div>
+                    <div class="color-circle" style="background: #C39BD3;" title="Сиреневый"></div>
+                    <div class="color-circle" style="background: #FFB347;" title="Персиковый"></div>
+                    <div class="color-circle" style="background: #7DCEA0;" title="Шалфейный"></div>
+                    <div class="color-circle" style="background: #FF9A99;" title="Пастельно-розовый"></div>
+                    <div class="color-circle" style="background: #9BA834;" title="Хаки"></div>
+                    <div class="color-circle" style="background: #FFE53B;" title="Лимонный"></div>
+                    <div class="color-circle" style="background: #8FCE8A;" title="Фисташковый"></div>
+                    <div class="color-circle" style="background: #A0A0A0;" title="Серый"></div>
+                    <div class="color-circle" style="background: #C5C4A0;" title="Хаки"></div>
+                    <div class="color-circle" style="background: #FFFACD;" title="Лимонный"></div>
+                    <div class="color-circle" style="background: #C1E1C1;" title="Фисташковый"></div>
+                    <div class="color-circle" style="background: #D3D3D3;" title="Серый"></div>
+                </div>
+            </div>
+
+            <!-- Блок пожеланий -->
+            <div class="wishes-block">
+                <div class="wishes-icon">💝</div>
+                <h2 class="wishes-title">Наши пожелания</h2>
+                <div class="wishes-text">
+                    <p>Лучшая поддержка для нас — Ваши искренние пожелания и лучезарные улыбки.</p>
+                    <p>Мы не хотим утруждать Вас выбором подарка, поэтому будем рады Вашему вкладу в бюджет нашей молодой семьи!</p>
+                </div>
+                <div class="wishes-decoration">✦ ✦ ✦</div>
+            </div>
+
+            <!-- Календарь с датой -->
+            <div class="invitation-text">Мы ждём Вас!</div>
+            <div class="calendar-wrapper">
+                <div class="reminder-divider">✧ ✧ ✧</div>
+                <div class="calendar-card">
+                    <div class="calendar-month">АВГУСТ</div>
+                    <div class="calendar-year">2026</div>
+                    <div class="calendar-weekdays">
+                        <span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span>
+                    </div>
+                    <div class="calendar-days">
+                        <span></span><span></span><span></span><span></span><span></span><span>1</span><span>2</span>
+                        <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                        <span>10</span><span>11</span><span>12</span><span>13</span><span class="highlight-day">14</sp
+
+
+an><span>15</span><span>16</span>
+                        <span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+                        <span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
+                        <span>31</span>
+                    </div>
+                    <div class="calendar-event">💕 Наша свадьба! 💕</div>
+                </div>
+                <div class="time">Начало мероприятия в 17:00</div>
+                <div class="location">
+                    <p>🍽️ Банкетный зал «Каир»</p>
+                    <p>По адресу:</p>
+                    <p>Республика Татарстан (Татарстан), Набережные Челны, проспект Мусы Джалиля, 79А, 423802 • этаж 2</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>">
