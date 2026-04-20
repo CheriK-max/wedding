@@ -1,20 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // === Модальное окно (если используется) ===
-    const rsvpBtn = document.getElementById('rsvpButton');
-    const modal = document.getElementById('modal');
-    const closeSpan = document.querySelector('.close');
-    const doneBtn = document.getElementById('doneButton');
-
-    if (rsvpBtn) rsvpBtn.addEventListener('click', () => modal.style.display = 'flex');
-    if (closeSpan) closeSpan.addEventListener('click', () => modal.style.display = 'none');
-    if (doneBtn) doneBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-        alert('Спасибо! Мы вас ждём 💖');
-    });
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) modal.style.display = 'none';
-    });
-
     // === Переключение блоков "Приду / Не приду" ===
     const radioYes = document.querySelector('input[value="yes"]');
     const radioNo = document.querySelector('input[value="no"]');
@@ -49,36 +33,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // === ОТПРАВКА ЧЕРЕЗ СВОЙ API (Vercel) ===
+    // === ОТПРАВКА В TELEGRAM через API Vercel ===
     const submitBtn = document.getElementById('submitForm');
     const statusDiv = document.getElementById('formStatus');
 
-    async function sendToMyApi(message) {
+    async function sendToTelegramAPI(message) {
         try {
             const response = await fetch('/api/send', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message })
+                body: JSON.stringify({ message: message })
             });
             return response.ok;
         } catch (error) {
-            console.error('Ошибка вызова API:', error);
+            console.error('Ошибка при вызове API:', error);
             return false;
         }
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     submitBtn.addEventListener('click', async function() {
         const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
         const names = document.getElementById('guestNames')?.value.trim();
-        
+
         if (!names) {
             statusDiv.textContent = '❌ Пожалуйста, укажите имена гостей';
             statusDiv.className = 'form-status error';
             return;
         }
-        
+
         let message = '';
-        
+
         if (attendance === 'no') {
             const noMessage = document.getElementById('noMessage')?.value.trim() || 'Не оставлено';
             message = `💔 <b>Ответ: не придёт</b>\n\n` +
@@ -91,10 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (cb.value === 'Свой вариант') {
                     const custom = customInput?.value.trim();
                     if (custom) selectedDrinks.push(`Свой вариант: ${custom}`);
-                    else
-
-
-Drinks.push('Свой вариант (не указан)');
+                    else selectedDrinks.push('Свой вариант (не указан)');
                 } else {
                     selectedDrinks.push(cb.value);
                 }
@@ -104,16 +91,19 @@ Drinks.push('Свой вариант (не указан)');
             message = `🎉 <b>Новый ответ на приглашение!</b>\n\n` +
                 `✅ <b>Присутствие:</b> БУДЕТ\n` +
                 `👥 <b>Гости:</b> ${escapeHtml(names)}\n` +
-                `🍷 <b>Напитки:</b> ${escapeHtml(drinksText)}\n` +
+                `🍷 <b>Напитки:</b> ${escapeHtml
+
+
+ext)}\n` +
                 `⚠️ <b>Аллергии/пожелания:</b> ${escapeHtml(allergies)}\n` +
                 `🕐 <b>Время:</b> ${new Date().toLocaleString()}`;
         }
 
         statusDiv.textContent = '⏳ Отправка...';
         statusDiv.className = 'form-status';
-        
-        const success = await sendToMyApi(message);
-        
+
+        const success = await sendToTelegramAPI(message);
+
         if (success) {
             statusDiv.textContent = '✅ Спасибо! Ваш ответ отправлен организаторам.';
             statusDiv.className = 'form-status success';
@@ -121,38 +111,35 @@ Drinks.push('Свой вариант (не указан)');
             document.getElementById('guestNames').value = '';
             if (customInput) customInput.value = '';
             document.getElementById('allergies').value = '';
-            const noMessageField = document.getElementById('noMessage');
-            if (noMessageField) noMessageField.value = '';
+            const noMsg = document.getElementById('noMessage');
+            if (noMsg) noMsg.value = '';
             document.querySelectorAll('.drink-option input[type="checkbox"]:checked').forEach(cb => cb.checked = false);
         } else {
-            statusDiv.textContent = '❌ Ошибка отправки. Пожалуйста, свяжитесь с нами напрямую в Telegram';
+            statusDiv.textContent = '❌ Ошибка отправки. Попробуйте позже или свяжитесь с нами напрямую.';
             statusDiv.className = 'form-status error';
         }
     });
 
-    function escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
+    // === ОТКРЫТИЕ ДВЕРЕЙ ===
+    const splash = document.getElementById('splashScreen');
+    const leftDoor = document.getElementById('leftDoor');
+    const rightDoor = document.getElementById('rightDoor');
+    const openBtn = document.getElementById('openDoorsBtn');
+    const weddingContainer = document.getElementById('weddingContainer');
+
+    function openDoors() {
+        if (leftDoor) leftDoor.classList.add('open');
+        if (rightDoor) rightDoor.classList.add('open');
+        setTimeout(() => {
+            if (splash) splash.style.display = 'none';
+            if (weddingContainer) {
+                weddingContainer.style.display = 'block';
+                weddingContainer.style.opacity = '1';
+            }
+        }, 1200);
+    }
+
+    if (openBtn) {
+        openBtn.addEventListener('click', openDoors);
     }
 });
-
-// === ЭФФЕКТ ОТКРЫВАЮЩИХСЯ ДВЕРЕЙ ===
-const splash = document.getElementById('splashScreen');
-const leftDoor = document.getElementById('leftDoor');
-const rightDoor = document.getElementById('rightDoor');
-const openBtn = document.getElementById('openDoorsBtn');
-const weddingContainer = document.getElementById('weddingContainer');
-
-function openDoors() {
-    leftDoor.classList.add('open');
-    rightDoor.classList.add('open');
-    setTimeout(() => {
-        splash.style.display = 'none';
-        weddingContainer.style.display = 'flex';
-    }, 1200);
-}
-
-if (openBtn) {
-    openBtn.addEventListener('click', openDoors);
-} selected
