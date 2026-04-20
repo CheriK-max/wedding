@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // === Переключение блоков "Приду / Не приду" ===
+    // Переключение блоков "Приду / Не приду"
     const radioYes = document.querySelector('input[value="yes"]');
     const radioNo = document.querySelector('input[value="no"]');
     const yesBlock = document.getElementById('yesBlock');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleAttendanceBlocks();
     }
 
-    // === Логика для "Свой вариант" напитка ===
+    // Логика для "Свой вариант" напитка
     const customCheckbox = document.querySelector('input[value="Свой вариант"]');
     const customInput = document.getElementById('customDrink');
     if (customCheckbox && customInput) {
@@ -33,113 +33,79 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // === ОТПРАВКА В TELEGRAM через API Vercel ===
+    // Отправка формы
     const submitBtn = document.getElementById('submitForm');
     const statusDiv = document.getElementById('formStatus');
 
-    async function sendToTelegramAPI(message) {
+    async function sendToAPI(message) {
         try {
             const response = await fetch('/api/send', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: message })
+                body: JSON.stringify({ message })
             });
             return response.ok;
-        } catch (error) {
-            console.error('Ошибка при вызове API:', error);
+        } catch (err) {
+            console.error('Fetch error:', err);
             return false;
         }
     }
 
-    function escapeHtml(text) {
+    function escapeHtml(str) {
+        if (!str) return '';
         const div = document.createElement('div');
-        div.textContent = text;
+        div.textContent = str;
         return div.innerHTML;
     }
 
-    submitBtn.addEventListener('click', async function() {
-        const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
-        const names = document.getElementById('guestNames')?.value.trim();
+    if (submitBtn) {
+        submitBtn.addEventListener('click', async function() {
+            const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
+            const names = document.getElementById('guestNames')?.value.trim();
 
-        if (!names) {
-            statusDiv.textContent = '❌ Пожалуйста, укажите имена гостей';
-            statusDiv.className = 'form-status error';
-            return;
-        }
-
-        let message = '';
-
-        if (attendance === 'no') {
-            const noMessage = document.getElementById('noMessage')?.value.trim() || 'Не оставлено';
-            message = `💔 <b>Ответ: не придёт</b>\n\n` +
-                `👥 <b>Гости:</b> ${escapeHtml(names)}\n` +
-                `📝 <b>Пожелание/поздравление:</b> ${escapeHtml(noMessage)}\n` +
-                `🕐 <b>Время:</b> ${new Date().toLocaleString()}`;
-        } else {
-            const selectedDrinks = [];
-            document.querySelectorAll('.drink-option input[type="checkbox"]:checked').forEach(cb => {
-                if (cb.value === 'Свой вариант') {
-                    const custom = customInput?.value.trim();
-                    if (custom) selectedDrinks.push(`Свой вариант: ${custom}`);
-                    else selectedDrinks.push('Свой вариант (не указан)');
-                } else {
-                    selectedDrinks.push(cb.value);
-                }
-            });
-            const drinksText = selectedDrinks.length ? selectedDrinks.join(', ') : 'Не указано';
-            const allergies = document.getElementById('allergies')?.value.trim() || 'Не указано';
-            message = `🎉 <b>Новый ответ на приглашение!</b>\n\n` +
-                `✅ <b>Присутствие:</b> БУДЕТ\n` +
-                `👥 <b>Гости:</b> ${escapeHtml(names)}\n` +
-                `🍷 <b>Напитки:</b> ${escapeHtml
-
-
-ext)}\n` +
-                `⚠️ <b>Аллергии/пожелания:</b> ${escapeHtml(allergies)}\n` +
-                `🕐 <b>Время:</b> ${new Date().toLocaleString()}`;
-        }
-
-        statusDiv.textContent = '⏳ Отправка...';
-        statusDiv.className = 'form-status';
-
-        const success = await sendToTelegramAPI(message);
-
-        if (success) {
-            statusDiv.textContent = '✅ Спасибо! Ваш ответ отправлен организаторам.';
-            statusDiv.className = 'form-status success';
-            // Очистка формы
-            document.getElementById('guestNames').value = '';
-            if (customInput) customInput.value = '';
-            document.getElementById('allergies').value = '';
-            const noMsg = document.getElementById('noMessage');
-            if (noMsg) noMsg.value = '';
-            document.querySelectorAll('.drink-option input[type="checkbox"]:checked').forEach(cb => cb.checked = false);
-        } else {
-            statusDiv.textContent = '❌ Ошибка отправки. Попробуйте позже или свяжитесь с нами напрямую.';
-            statusDiv.className = 'form-status error';
-        }
-    });
-
-    // === ОТКРЫТИЕ ДВЕРЕЙ ===
-    const splash = document.getElementById('splashScreen');
-    const leftDoor = document.getElementById('leftDoor');
-    const rightDoor = document.getElementById('rightDoor');
-    const openBtn = document.getElementById('openDoorsBtn');
-    const weddingContainer = document.getElementById('weddingContainer');
-
-    function openDoors() {
-        if (leftDoor) leftDoor.classList.add('open');
-        if (rightDoor) rightDoor.classList.add('open');
-        setTimeout(() => {
-            if (splash) splash.style.display = 'none';
-            if (weddingContainer) {
-                weddingContainer.style.display = 'block';  // исправлено: block вместо flex
-                weddingContainer.style.opacity = '1';
+            if (!names) {
+                statusDiv.textContent = '❌ Пожалуйста, укажите имена гостей';
+                statusDiv.className = 'form-status error';
+                return;
             }
-        }, 1200);
-    }
 
-    if (openBtn) {
-        openBtn.addEventListener('click', openDoors);
+            let message = '';
+            if (attendance === 'no') {
+                const noMsg = document.getElementById('noMessage')?.value.trim() || 'Не оставлено';
+                message = `💔 <b>Ответ: не придёт</b>\n\n👥 <b>Гости:</b> ${escapeHtml(names)}\n📝 <b>Пожелание:</b> ${escapeHtml(noMsg)}\n🕐 <b>Время:</b> ${new Date().toLocaleString()}`;
+            } else {
+                const selectedDrinks = [];
+                document.querySelectorAll('.drink-option input[type="checkbox"]:checked').forEach(cb => {
+                    if (cb.value === 'Свой вариант') {
+                        const custom = customInput?.value.trim();
+                        selectedDrinks.push(custom ? `Свой вариант: ${custom}` : 'Свой вариант (не указан)');
+                    } else {
+                        selectedDrinks.push(cb.value);
+                    }
+                });
+                const drinksText = selectedDrinks.length ? selectedDrinks.join(', ') : 'Не указано';
+                const allergies = document.getElementById('allergies')?.value.trim() || 'Не указано';
+                message = `🎉 <b>Новый ответ на приглашение!</b>\n\n✅ <b>Присутствие:</b> БУДЕТ\n👥 <b>Гости:</b> ${escapeHtml(names)}\n🍷 <b>Напитки:</b> ${escapeHtml(drinksText)}\n⚠️ <b>Аллергии/пожелания:</b> ${escapeHtml(allergies)}\n🕐 <b>Время:</b> ${new Date().toLocaleString()}`;
+
+
+statusDiv.textContent = '⏳ Отправка...';
+            statusDiv.className = 'form-status';
+            const success = await sendToAPI(message);
+
+            if (success) {
+                statusDiv.textContent = '✅ Спасибо! Ваш ответ отправлен организаторам.';
+                statusDiv.className = 'form-status success';
+                // Очистка формы
+                document.getElementById('guestNames').value = '';
+                if (customInput) customInput.value = '';
+                document.getElementById('allergies').value = '';
+                const noMsgField = document.getElementById('noMessage');
+                if (noMsgField) noMsgField.value = '';
+                document.querySelectorAll('.drink-option input[type="checkbox"]:checked').forEach(cb => cb.checked = false);
+            } else {
+                statusDiv.textContent = '❌ Ошибка отправки. Попробуйте позже или свяжитесь с нами напрямую.';
+                statusDiv.className = 'form-status error';
+            }
+        });
     }
-});
+});}
