@@ -679,7 +679,7 @@ background: linear-gradient(90deg, rgba(147,224,180,0), #93e0b4, rgba(147,224,18
 }
 
 /* Адаптация для мобильных */
-max-width: 600px {
+@media (max-width: 600px) {
     .invite-title {
         font-size: 32px;
     }
