@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleAttendanceBlocks();
     }
 
-    // Логика для "Свой вариант" напитка
+    // Свой вариант напитка
     const customCheckbox = document.querySelector('input[value="Свой вариант"]');
     const customInput = document.getElementById('customDrink');
     if (customCheckbox && customInput) {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Отправка формы
+    // Отправка в Telegram
     const submitBtn = document.getElementById('submitForm');
     const statusDiv = document.getElementById('formStatus');
 
@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const drinksText = selectedDrinks.length ? selectedDrinks.join(', ') : 'Не указано';
                 const allergies = document.getElementById('allergies')?.value.trim() || 'Не указано';
                 message = `🎉 <b>Новый ответ на приглашение!</b>\n\n✅ <b>Присутствие:</b> БУДЕТ\n👥 <b>Гости:</b> ${escapeHtml(names)}\n🍷 <b>Напитки:</b> ${escapeHtml(drinksText)}\n⚠️ <b>Аллергии/пожелания:</b> ${escapeHtml(allergies)}\n🕐 <b>Время:</b> ${new Date().toLocaleString()}`;
+            }
 
 
 statusDiv.textContent = '⏳ Отправка...';
@@ -95,7 +96,6 @@ statusDiv.textContent = '⏳ Отправка...';
             if (success) {
                 statusDiv.textContent = '✅ Спасибо! Ваш ответ отправлен организаторам.';
                 statusDiv.className = 'form-status success';
-                // Очистка формы
                 document.getElementById('guestNames').value = '';
                 if (customInput) customInput.value = '';
                 document.getElementById('allergies').value = '';
@@ -103,7 +103,7 @@ statusDiv.textContent = '⏳ Отправка...';
                 if (noMsgField) noMsgField.value = '';
                 document.querySelectorAll('.drink-option input[type="checkbox"]:checked').forEach(cb => cb.checked = false);
             } else {
-                statusDiv.textContent = '❌ Ошибка отправки. Попробуйте позже или свяжитесь с нами напрямую.';
+                statusDiv.textContent = '❌ Ошибка отправки. Попробуйте позже.';
                 statusDiv.className = 'form-status error';
             }
         });
