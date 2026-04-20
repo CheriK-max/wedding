@@ -139,5 +139,31 @@
 </div>
 
 <script src="script.js"></script>
+
+<script>
+  (function() {
+    var btn = document.getElementById('openDoorsBtn');
+    var left = document.getElementById('leftDoor');
+    var right = document.getElementById('rightDoor');
+    var splash = document.getElementById('splashScreen');
+    var container = document.getElementById('weddingContainer');
+    
+    if (!btn) {
+      console.error('Кнопка не найдена');
+      return;
+    }
+    
+    btn.onclick = function(e) {
+      e.preventDefault();
+      if (left) left.classList.add('open');
+      if (right) right.classList.add('open');
+      setTimeout(function() {
+        if (splash) splash.style.display = 'none';
+        if (container) container.style.display = 'block';
+      }, 1200);
+    };
+  })();
+</script>
+    
 </body>
 </html>
