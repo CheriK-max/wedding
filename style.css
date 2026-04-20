@@ -403,10 +403,7 @@ px 0;
     cursor: default;
 }
 
-.calendar-days span.highlight-da
-
-
-y {
+.calendar-days span.highlight-day {
     background: #c4a27a;
     color: white;
     box-shadow: 0 3px 8px rgba(196, 162, 122, 0.4);
