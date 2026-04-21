@@ -78,7 +78,7 @@ h1 {
     color: #4a3520;
     margin: 15px 0 10px;
     text-align: center;
-   background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
+   background: linear-gradient(90deg, rgba(147,224,180,0), #befffc, rgba(147,224,180,0));
 }
 
 .location {
@@ -90,7 +90,7 @@ h1 {
     border-radius: 30px;
     margin: 10px 0;
     text-align: center;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #befffc, rgba(147,224,180,0));
 }
 
 .location p {
@@ -127,7 +127,7 @@ button:hover {
     padding-top: 25px;
     border-top: 2px dashed #f0e0d0;
     text-align: left;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #befffc, rgba(147,224,180,0));
 }
 
 .form-section h3 {
@@ -276,7 +276,7 @@ button:hover {
     font-size: 40px;
     color: #4a3520;
     margin-bottom: 12px;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #befffc, rgba(147,224,180,0));
 }
 
 .dresscode p {
@@ -326,7 +326,7 @@ button:hover {
     font-weight: 600;
     color: #4a3520;
     letter-spacing: 2px;
-   background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
+   background: linear-gradient(90deg, rgba(147,224,180,0), #befffc, rgba(147,224,180,0));
 }
 
 .wishes-text {
@@ -339,7 +339,7 @@ button:hover {
 
 .calendar-wrapper {
     margin-top: 20px;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #befffc, rgba(147,224,180,0));
 }
 
 .calendar-card {
@@ -443,7 +443,7 @@ button:hover {
     margin: 30px 0 10px;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgba(196, 162, 122, 0.1);
-    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #befffc, rgba(147,224,180,0));
 }
 
 .invitation-text::before,
