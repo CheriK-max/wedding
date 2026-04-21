@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Dancing+Script:wght@400..700&family=Playwrite+NO:wght@100..400&display=swap');
 
 * {
     margin: 0;
@@ -60,7 +61,7 @@ h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 48px;
     font-weight: normal;
-    color: #947457;
+    color: #855b34;
     margin-bottom: 30px;
     border-top: 1px solid #a07d5e;
     border-bottom: 1px solid #a07d5e;
@@ -68,35 +69,33 @@ h1 {
     padding: 8px 20px;
 }
 
-h3 {
-    background: linear-gradient(90deg, rgba(147,224,180,0), #93e0b4, rgba(147,224,180,0));
-}
+
 
 .time {
-    font-family: 'Great Vibes', cursive;
-    font-size: 38px;
+    font-family: 'Playfair Display';
+    font-size: 30px;
     font-weight: bold;
-    color: #947457;
+    color: #4a3520;
     margin: 15px 0 10px;
     text-align: center;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #93e0b4, rgba(147,224,180,0));
+   background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
 }
 
 .location {
     font-size: 36px;
     line-height: 1.6;
-    color: #947457;
+    color: #4a3520;
     background: #fef8f0;
     padding: 15px;
     border-radius: 30px;
     margin: 10px 0;
     text-align: center;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #93e0b4, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
 }
 
 .location p {
-    font-family: 'Great Vibes', cursive !important;
-    font-size: 28px !important;
+    font-family: 'Playfair Display' !important;
+    font-size: 30px !important;
     font-weight: 600;
     line-height: 1.8;
     margin: 0;
@@ -128,12 +127,12 @@ button:hover {
     padding-top: 25px;
     border-top: 2px dashed #f0e0d0;
     text-align: left;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #93e0b4, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
 }
 
 .form-section h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-family: 'Great Vibes' !important;
+    font-size: 40px;
     color: #4a3520;
     margin-bottom: 20px;
     text-align: center;
@@ -194,13 +193,11 @@ button:hover {
 }
 
 #submitForm {
-    background: #7cb342;
+    background: #cbd4a2;
     width: 100%;
-    margin:
-
-
-px 0;
+    margin: px 0;
     display: inline-block;
+    color: #382819;
 }
 
 .form-status {
@@ -222,8 +219,8 @@ px 0;
 }
 
 .attendance-label {
-    font-family: 'Great Vibes', cursive !important;
-    font-size: 28px !important;
+    font-family: 'Great Vibes' !important;
+    font-size: 40px !important;
     font-weight: 600 !important;
     color: #4a3520 !important;
     text-align: center;
@@ -275,17 +272,17 @@ px 0;
 }
 
 .dresscode h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-family: 'Great Vibes' !important;
+    font-size: 40px;
     color: #4a3520;
     margin-bottom: 12px;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #93e0b4, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
 }
 
 .dresscode p {
-    font-family: 'Great Vibes', cursive !important;
-    font-size: 26px;
-    color: #866c51;
+    font-family:'Playfair Display', serif;
+    font-size: 22px;
+    color: #553d25;
     line-height: 1.5;
     margin-bottom: 20px;
 }
@@ -324,25 +321,25 @@ px 0;
 }
 
 .wishes-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
+    font-family: 'Great Vibes' !important;
+    font-size: 40px;
     font-weight: 600;
     color: #4a3520;
     letter-spacing: 2px;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #93e0b4, rgba(147,224,180,0));
+   background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
 }
 
 .wishes-text {
-    font-family: 'Great Vibes', cursive !important;
-    font-size: 32px;
+    font-family:'Playfair Display', serif;
+    font-size: 22px;
     line-height: 1.7;
-    color: #866c51;
+    color: #553d25;
     margin: 20px 0;
 }
 
 .calendar-wrapper {
     margin-top: 20px;
-    background: linear-gradient(90deg, rgba(147,224,180,0), #93e0b4, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
 }
 
 .calendar-card {
@@ -360,14 +357,14 @@ px 0;
     font-family: 'Great Vibes', cursive;
     font-size: 28px;
     font-weight: bold;
-    color: #947457;
+    color: #7e634a;
     letter-spacing: 6px;
 }
 
 .calendar-year {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    color: #947457;
+    color: #7e634a;
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -380,7 +377,7 @@ px 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
     font-weight: 600;
-    color: #8b7355;
+    color: #614019;
 }
 
 .calendar-weekdays span {
@@ -420,9 +417,9 @@ px 0;
 }
 
 .calendar-event {
-    font-family: 'Great Vibes', cursive;
-    font-size: 26px;
-    color: #947457;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: #5c4631;
     font-weight: bold;
     margin-top: 15px;
     padding-top: 12px;
@@ -440,20 +437,20 @@ px 0;
 .invitation-text {
     font-family: 'Great Vibes', cursive;
     font-size: 42px;
-    color: #947457;
+    color: #5c4631;
     font-weight: bold;
     text-align: center;
     margin: 30px 0 10px;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgba(196, 162, 122, 0.1);
-    background: linear-gradient(90deg, rgba(147,224,180,0), #93e0b4, rgba(147,224,180,0));
+    background: linear-gradient(90deg, rgba(147,224,180,0), #c4ffdb, rgba(147,224,180,0));
 }
 
 .invitation-text::before,
 .invitation-text::after {
     content: '✦';
     font-size: 24px;
-    color: #866c51;
+    color: #7e634a;
     opacity: 0.6;
     margin: 0 15px;
     display: inline-block;
